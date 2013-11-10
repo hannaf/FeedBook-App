@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:gravity="center_horizontal">
+    
+    <TextView
+        android:id="@+id/tituloTela" 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:gravity="top"
+        android:layout_alignParentTop="true"
+        android:text="@string/grupos"/>
+    
+    <Button 
+        android:id="@+id/novoGrupo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
+        android:text="@string/novo_grupo"
+        android:onClick="novoGrupo"/>    
+    
+    <ListView
+        android:id="@+id/listaGrupo" 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tituloTela"
+        android:layout_above="@id/novoGrupo" />
+    
+
+    
+
+</RelativeLayout>
