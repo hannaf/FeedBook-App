@@ -15,11 +15,15 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
+
+
 public class FeedActivity extends Activity implements OnItemClickListener {
 	
 	private List<Map<String,Object>> feedList;
 	
 	private ListView listView;
+	
+	/*criado um item isso e um teste*/
 	
 	
 	@Override

@@ -3,7 +3,6 @@
     android:id="@+id/tableLista"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#123456"
     android:clickable="false"
     android:orientation="vertical" >
     
