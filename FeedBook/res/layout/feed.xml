@@ -3,10 +3,11 @@
     android:id="@+id/tableLista"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" 
-    android:clickable="false" >
+    android:background="#123456"
+    android:clickable="false"
+    android:orientation="vertical" >
     
-    <TableRow >
+    <TableRow android:background="@drawable/textbg6a" >
 
 	    <TextView
 	        android:id="@+id/nomeGrupo"
@@ -23,6 +24,7 @@
     <TextView
         android:id="@+id/detalhe"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:background="@drawable/textbg7" />
 
 </TableLayout>

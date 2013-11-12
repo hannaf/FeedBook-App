@@ -53,5 +53,7 @@
     <!-- Novo feed -->
     <string name="msg_digite_titulo">Digite o título do feed</string>
     <string name="msg_feed_publicado_sucesso">Feed publicado com sucesso</string>
+    <!-- Toast -->
+    <string name="icone_alerta">Icone alerta</string>
     
 </resources>
