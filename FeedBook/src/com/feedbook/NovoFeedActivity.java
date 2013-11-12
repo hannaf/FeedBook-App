@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class NovoFeedActivity extends Activity {
 	
@@ -21,9 +20,9 @@ public class NovoFeedActivity extends Activity {
 		String detalhe = edtDetalhe.getText().toString(); //(Criar caixa de confirmação)
 		
 		if(titulo.length() == 0){
-			Toast.makeText(this, R.string.msg_digite_titulo, Toast.LENGTH_SHORT).show();
+			ToastManager.show(this, getString(R.string.msg_digite_titulo), ToastManager.ERROR);
 		} else {
-			Toast.makeText(this, R.string.msg_feed_publicado_sucesso, Toast.LENGTH_SHORT).show();
+			ToastManager.show(this, getString(R.string.msg_feed_publicado_sucesso), ToastManager.SUCCESS);
 		}
 	}
 

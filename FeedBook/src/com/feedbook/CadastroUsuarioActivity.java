@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
 public class CadastroUsuarioActivity extends Activity{
 
@@ -21,13 +19,14 @@ public class CadastroUsuarioActivity extends Activity{
 		EditText edtApelido = (EditText) findViewById(R.id.apelidoUsuario);
 		String email = edtEmail.getText().toString();
 		String apelido = edtApelido.getText().toString();
-		
+        
 		if (email.length() == 0){
-			Toast.makeText(this, R.string.msg_digite_email_valido, Toast.LENGTH_SHORT).show();
+			ToastManager.show(this, getString(R.string.msg_digite_email_valido), ToastManager.ERROR);
 		} else if (apelido.length() == 0){
-			Toast.makeText(this, R.string.msg_digite_apelido, Toast.LENGTH_SHORT).show();
+			ToastManager.show(this, getString(R.string.msg_digite_apelido), ToastManager.ERROR);
 		} else {
-			Toast.makeText(this, R.string.msg_insira_codigo_email, Toast.LENGTH_SHORT).show();
+			ToastManager.show(this, getString(R.string.msg_insira_codigo_email), ToastManager.INFORMATION);
+			
 			startActivity(new Intent(this, ConfirmacaoCadastroActivity.class));
 		}
 	}

@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class AlterarSenhaActivity extends Activity {
 
@@ -27,15 +26,15 @@ public class AlterarSenhaActivity extends Activity {
 		String confirma = edtConfima.getText().toString();
 
 		if (senha.length() == 0) {
-			Toast.makeText(this, R.string.msg_digite_senha, Toast.LENGTH_SHORT).show();
+			ToastManager.show(this, getString(R.string.msg_digite_senha), ToastManager.ERROR);
 		} else if (senha.length() < 6) {
-			Toast.makeText(this, R.string.msg_senha_seis_digitos, Toast.LENGTH_SHORT).show();
+			ToastManager.show(this, getString(R.string.msg_senha_seis_digitos), ToastManager.WARNING);
 		} else if (confirma.length() == 0) {
-			Toast.makeText(this, R.string.msg_digite_confirmacao, Toast.LENGTH_SHORT).show();
+			ToastManager.show(this, getString(R.string.msg_digite_confirmacao), ToastManager.ERROR);
 		} else if (!confirma.equals(senha)) {
-			Toast.makeText(this, R.string.msg_confirmacao_incorreta, Toast.LENGTH_SHORT).show();
+			ToastManager.show(this, getString(R.string.msg_confirmacao_incorreta), ToastManager.ERROR);
 		} else {
-
+			
 			SQLiteDatabase db = databaseHelper.getWritableDatabase();
 			ContentValues values = new ContentValues();
 			values.put("email_usuario", "");
@@ -45,7 +44,7 @@ public class AlterarSenhaActivity extends Activity {
 			long resultado = db.insert("usuario", null, values);
 			
 			if (resultado != -1) {
-				Toast.makeText(this, R.string.msg_usuario_cadastrado_sucesso, Toast.LENGTH_SHORT).show();
+				ToastManager.show(this, getString(R.string.msg_usuario_cadastrado_sucesso), ToastManager.SUCCESS);
 				startActivity(new Intent(this, FeedActivity.class));
 			}
 		}		
