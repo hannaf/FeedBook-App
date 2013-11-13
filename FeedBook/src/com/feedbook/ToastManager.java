@@ -29,22 +29,22 @@ public class ToastManager {
 		switch (toastType) {
 		case WARNING:
 			img = context.getResources().getDrawable(
-					R.drawable.ic_launcher);
+					R.drawable.warning);
 			bg = R.drawable.toast_background_yellow;			
 			break;
 		case ERROR:
 			img = context.getResources().getDrawable(
-					R.drawable.ic_launcher);
+					R.drawable.information);
 			bg = R.drawable.toast_background_red;			
 			break;
 		case SUCCESS:
 			img = context.getResources().getDrawable(
-					R.drawable.ic_launcher);
+					R.drawable.pass);
 			bg = R.drawable.toast_background_green;
 			break;
 		default:
 			img = context.getResources().getDrawable(
-					R.drawable.ic_launcher);
+					R.drawable.information);
 			bg = R.drawable.toast_background_blue;			
 			break;
 		}

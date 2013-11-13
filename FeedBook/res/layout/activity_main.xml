@@ -19,16 +19,18 @@
             android:layout_gravity="center"
             android:layout_marginBottom="15dp"
             android:text="@string/usuario"
-            android:textColor="#000000" />
+            android:textColor="#ffec17"
+            android:textSize="24sp" />
 
         <EditText
             android:id="@+id/edtxtUser"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="36dp"
             android:layout_marginBottom="15dp"
             android:alpha="0.5"
             android:background="#FFFFFF"
             android:ems="10"
+            android:hint="@string/usuario"
             android:inputType="text"
             android:text="@string/usuario"
             android:textColor="#000000" >
@@ -43,20 +45,21 @@
             android:layout_gravity="center"
             android:layout_marginBottom="15dp"
             android:text="@string/senha"
-            android:textColor="#000000" />
+            android:textColor="#ffec17"
+            android:textSize="24sp" />
 
         <EditText
             android:id="@+id/edtxtPwd"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="36dp"
             android:layout_marginBottom="15dp"
             android:alpha="0.5"
             android:background="#FFFFFF"
             android:ems="10"
+            android:hint="@string/senha"
             android:inputType="textPassword"
             android:text="@string/senha"
             android:textColor="#000000" />
-        
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -65,18 +68,23 @@
             <Button
                 android:id="@+id/btnEntra"
                 style="?android:attr/buttonStyleSmall"
+                android:layout_width="100dp"
+                android:layout_height="36dp"
                 android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:layout_marginLeft="78dp"
+                android:layout_marginLeft="57dp"
+                android:hint="@string/entrar"
                 android:text="@string/entrar"
-                android:textColor="#ffffff" />
+                android:textColor="#000000"
+                
+                 />
+
         </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:hint="@string/esqueceu_sua_senha"
             android:text="@string/esqueceu_sua_senha"
             android:textColor="#ffffff" />
 
@@ -84,10 +92,11 @@
             android:id="@+id/cadastrar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="@string/cadastrar" 
             android:clickable="true"
-            android:textColor="#ffffff" />
+            android:hint="@string/cadastrar"
+            android:text="@string/cadastrar"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
         
     </LinearLayout>
     
