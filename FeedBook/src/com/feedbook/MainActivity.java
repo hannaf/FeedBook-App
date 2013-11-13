@@ -6,16 +6,15 @@ import com.feedbook.R;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
-//import android.view.KeyEvent;
+
 import android.view.View;
-//import android.view.View.OnFocusChangeListener;
-//import android.view.View.OnKeyListener;
-//import android.view.View.OnClickListener;
+
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-//import android.widget.TextView;
+
 import android.widget.Toast;
+
 
 public class MainActivity extends Activity /* implements OnClickListener */{
 
@@ -29,33 +28,7 @@ public class MainActivity extends Activity /* implements OnClickListener */{
 		final EditText edtxtUser = (EditText) findViewById(R.id.edtxtUser);
 		final TextView edtxCadastrar = (TextView) findViewById(R.id.cadastrar);
 
-		edtxtUser.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				edtxtUser.setText("");
-
-				edtxtUser.setOnClickListener(new View.OnClickListener() {
-
-					@Override
-					public void onClick(View v) {
-						edtxtPwd.setText("");
-						edtxtPwd.requestFocus();
-
-					}
-				});
-			}
-		});
-
-		edtxtPwd.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-
-				btnEntra.requestFocus();
-
-			}
-		});
+		
 		btnEntra.setOnClickListener(new View.OnClickListener() {
 
 			@Override
