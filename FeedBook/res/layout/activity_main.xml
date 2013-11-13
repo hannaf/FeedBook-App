@@ -19,7 +19,7 @@
             android:layout_gravity="center"
             android:layout_marginBottom="15dp"
             android:text="@string/usuario"
-            android:textColor="#ffec17"
+            android:textColor="#e8eaec"
             android:textSize="24sp" />
 
         <EditText
@@ -45,7 +45,7 @@
             android:layout_gravity="center"
             android:layout_marginBottom="15dp"
             android:text="@string/senha"
-            android:textColor="#ffec17"
+            android:textColor="#e8eaec"
             android:textSize="24sp" />
 
         <EditText
