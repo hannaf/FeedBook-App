@@ -34,7 +34,7 @@ public class ToastManager {
 			break;
 		case ERROR:
 			img = context.getResources().getDrawable(
-					R.drawable.information);
+					R.drawable.warning);
 			bg = R.drawable.toast_background_red;			
 			break;
 		case SUCCESS:
