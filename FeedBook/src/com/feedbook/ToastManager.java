@@ -44,7 +44,7 @@ public class ToastManager {
 			break;
 		default:
 			img = context.getResources().getDrawable(
-					R.drawable.information);
+					R.drawable.system_information);
 			bg = R.drawable.toast_background_blue;			
 			break;
 		}
