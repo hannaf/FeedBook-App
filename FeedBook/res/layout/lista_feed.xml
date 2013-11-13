@@ -37,6 +37,8 @@
         android:layout_width="fill_parent"
         android:layout_height="420dp"
         android:layout_above="@id/listaGrupos"
-        android:layout_below="@id/pesquisaFeed" />
+        android:layout_below="@id/pesquisaFeed" 
+        android:dividerHeight="8dp" 
+        android:divider="@android:color/transparent"/>
 
 </RelativeLayout>
