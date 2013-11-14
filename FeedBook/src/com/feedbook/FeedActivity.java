@@ -23,7 +23,7 @@ public class FeedActivity extends Activity implements OnItemClickListener {
 	
 	private ListView listView;
 	
-	/*criado um item isso e um teste*/
+	
 	
 	
 	@Override
