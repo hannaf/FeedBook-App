@@ -24,7 +24,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		db.execSQL("CREATE TABLE feed(_id INTEGER PRIMARY KEY AUTOINCREMENT, titulo_feed TEXT NOT NULL, " +
 				" detalhe_feed TEXT, id_grupo INTEGER NOT NULL);");
 		
-		db.execSQL("CREATE TABLE grupo_usuario(id_grupo INTEGER NOT NULL, id_usuario INTEGER NOT NULL, status TEXT NOT NULL" +
+		db.execSQL("CREATE TABLE grupo_usuario(id_grupo INTEGER NOT NULL, id_usuario INTEGER NOT NULL, status TEXT NOT NULL," +
 				" PRIMARY KEY(id_grupo, id_usuario),FOREIGN KEY (id_grupo) REFERENCES grupo(_id),FOREIGN KEY (id_usuario) REFERENCES usuario(_id));");
 		
 	}

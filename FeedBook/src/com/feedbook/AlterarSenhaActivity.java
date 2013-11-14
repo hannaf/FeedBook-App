@@ -10,13 +10,13 @@ import android.widget.EditText;
 
 public class AlterarSenhaActivity extends Activity {
 
-	private DatabaseHelper databaseHelper;
+	private DatabaseHelper dbHelper;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.alterar_senha);
-		databaseHelper = new DatabaseHelper(this);
+		dbHelper = new DatabaseHelper(this);
 	}
 
 	public void salvarUsuario(View view) {
@@ -35,10 +35,10 @@ public class AlterarSenhaActivity extends Activity {
 			ToastManager.show(this, getString(R.string.msg_confirmacao_incorreta), ToastManager.ERROR);
 		} else {
 			
-			SQLiteDatabase db = databaseHelper.getWritableDatabase();
+			SQLiteDatabase db = dbHelper.getWritableDatabase();
 			ContentValues values = new ContentValues();
-			values.put("email_usuario", "");
-			values.put("apelido", "");
+			values.put("email_usuario", getIntent().getStringExtra("email"));
+			values.put("apelido", getIntent().getStringExtra("apelido"));
 			values.put("senha", senha);
 			
 			long resultado = db.insert("usuario", null, values);
@@ -48,6 +48,11 @@ public class AlterarSenhaActivity extends Activity {
 				startActivity(new Intent(this, FeedActivity.class));
 			}
 		}		
+	}
+	
+	protected void onDestroy() {
+		dbHelper.close();
+		super.onDestroy();
 	}
 
 }

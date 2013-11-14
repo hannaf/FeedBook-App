@@ -6,6 +6,8 @@ import com.feedbook.R;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 
 import android.view.View;
 
@@ -15,8 +17,9 @@ import android.widget.TextView;
 
 import android.widget.Toast;
 
-
 public class MainActivity extends Activity /* implements OnClickListener */{
+
+	private DatabaseHelper dbHelper;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,63 +31,68 @@ public class MainActivity extends Activity /* implements OnClickListener */{
 		final EditText edtxtUser = (EditText) findViewById(R.id.edtxtUser);
 		final TextView edtxCadastrar = (TextView) findViewById(R.id.cadastrar);
 
-		
+		dbHelper = new DatabaseHelper(this);
+
 		btnEntra.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				String Login = "hanna";
-				String Senha = "1234";
 				String strLogin = edtxtUser.getText().toString();
 				String strSenha = edtxtPwd.getText().toString();
 
 				if (v.getId() == R.id.btnEntra) {
 
-					int L = strLogin.length();
-					if (L < 1) {
+					if (strLogin.length() == 0) {
 						Toast.makeText(MainActivity.this, "Falta o usuário",
 								Toast.LENGTH_LONG).show();
+					} else if (strSenha.length() == 0) {
+						Toast.makeText(MainActivity.this, "Falta a senha",
+								Toast.LENGTH_LONG).show();
+					} else {
+						SQLiteDatabase db = dbHelper.getReadableDatabase();
+						Cursor cursor = db
+								.rawQuery(
+										"SELECT _id, email_usuario, apelido, "
+												+ "senha FROM usuario WHERE email_usuario = ? AND senha = ? ",
+										new String[] { strLogin, strSenha });
+
+						if (cursor.moveToFirst()) {
+
+							Toast.makeText(MainActivity.this,
+									"Login com Sucesso!!!", Toast.LENGTH_SHORT)
+									.show();
+
+							Intent intent = new Intent(MainActivity.this,
+									FeedActivity.class);
+							startActivity(intent);
+						} else
+							Toast.makeText(
+									MainActivity.this,
+									"Erro de login, usuário ou senha inválidos",
+									Toast.LENGTH_SHORT).show();
 					}
-
-					if (v.getId() == R.id.btnEntra) {
-						String Pwd = edtxtPwd.getText().toString();
-						int R = Pwd.length();
-						if (R < 1) {
-							Toast.makeText(MainActivity.this, "Falta a senha",
-									Toast.LENGTH_LONG).show();
-						}
-					}
-
-					if (strLogin.equals(Login) && strSenha.equals(Senha)) {
-
-						Toast.makeText(MainActivity.this,
-								"Login com Sucesso!!!", Toast.LENGTH_SHORT)
-								.show();
-
-						Intent intent = new Intent(MainActivity.this,
-								FeedActivity.class);
-						startActivity(intent);
-					} else
-						Toast.makeText(MainActivity.this,
-								"Erro de login, usuário ou senha inválidos",
-								Toast.LENGTH_SHORT).show();
-
 				}
 			}
 		});
-		
+
 		edtxCadastrar.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
-				startActivity(new Intent(MainActivity.this, CadastroUsuarioActivity.class));				
+				startActivity(new Intent(MainActivity.this,
+						CadastroUsuarioActivity.class));
 			}
-			
+
 		});
 
 		// final de oncreate
 
 	}
-
+	
+	protected void onDestroy() {
+		dbHelper.close();
+		super.onDestroy();
+	}
+	
 }// final main activity
 

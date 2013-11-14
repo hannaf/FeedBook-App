@@ -16,13 +16,15 @@ public class ConfirmacaoCadastroActivity extends Activity {
 	public void continuar(View view){
 		EditText edtCodigo = (EditText) findViewById(R.id.codigoEmail);
 		String codigo = edtCodigo.getText().toString();
-		
 		if (codigo.length() == 0){
 			ToastManager.show(this, getString(R.string.msg_insira_codigo_email), ToastManager.ERROR);
 		} else if (!codigo.equals("FEED")){
 			ToastManager.show(this, getString(R.string.msg_codigo_incorreto), ToastManager.ERROR);
 		} else {
-			startActivity(new Intent(this, AlterarSenhaActivity.class));			
+			Intent intent = new Intent(this, AlterarSenhaActivity.class);
+			intent.putExtra("email", getIntent().getStringExtra("email"));
+			intent.putExtra("apelido", getIntent().getStringExtra("apelido"));
+			startActivity(intent);			
 		}
 	}
 }

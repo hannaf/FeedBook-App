@@ -3,16 +3,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" 
-    android:gravity="center_horizontal">
+    android:gravity="center_horizontal"
+    android:background="@drawable/background_padrao">
     
     <TextView
         android:id="@+id/tituloTela" 
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textSize="25sp"
         android:gravity="top"
         android:layout_alignParentTop="true"
-        android:text="@string/grupos"/>
+        android:text="@string/grupos"
+        android:textSize="30sp" 
+        android:layout_marginLeft="5dp"
+        android:textColor="#F0F8FF"/>
     
     <Button 
         android:id="@+id/novoGrupo"
@@ -28,7 +31,11 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tituloTela"
-        android:layout_above="@id/novoGrupo" />
+        android:layout_above="@id/novoGrupo" 
+        android:dividerHeight="8dp" 
+        android:divider="@android:color/transparent"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"/>
     
 
     

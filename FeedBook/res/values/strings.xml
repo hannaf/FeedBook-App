@@ -42,6 +42,7 @@
     <string name="msg_digite_email_valido">Digite um e-mail válido</string>
     <string name="msg_digite_apelido">Digite um apelido</string>
     <string name="msg_insira_codigo_email">Insira o código enviado para seu e-mail</string>
+    <string name="msg_existe_usuario_cadastrado_email">Já existe um usuário cadastrado com esse e-mail</string>
     <!-- Confirmacao cadastro -->
     <string name="msg_codigo_incorreto">Código incorreto</string>
     <!-- Alterar senha -->

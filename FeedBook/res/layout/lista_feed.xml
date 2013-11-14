@@ -11,7 +11,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:text="@string/feeds"
-        android:textSize="25sp" />
+        android:textSize="30sp" 
+        android:layout_marginLeft="5dp"
+        android:textColor="#F0F8FF"/>
 
     <EditText
         android:id="@+id/pesquisaFeed"
@@ -39,6 +41,8 @@
         android:layout_above="@id/listaGrupos"
         android:layout_below="@id/pesquisaFeed" 
         android:dividerHeight="8dp" 
-        android:divider="@android:color/transparent"/>
+        android:divider="@android:color/transparent"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"/>
 
 </RelativeLayout>
