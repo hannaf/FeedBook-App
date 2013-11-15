@@ -6,8 +6,10 @@
     android:orientation="vertical" >
 
     <TextView 
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp"
         android:textSize="25sp"
         android:text="@string/cadastro_usuario"/>
     
@@ -15,30 +17,34 @@
     <TextView 
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:textSize="18sp"
         android:text="@string/email"/>
     
     <EditText 
         android:id="@+id/emailUsuario"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
         android:inputType="textEmailAddress"
         android:hint="@string/email"/>
     
     <TextView 
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:textSize="18sp"
         android:text="@string/apelido"/>
     
     <EditText 
         android:id="@+id/apelidoUsuario"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
         android:hint="@string/apelido"/>    
         
     <Button 
-        android:layout_width="fill_parent"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
+        android:layout_gravity="center_horizontal"
         android:text="@string/continuar" 
         android:onClick="continuar"/>    
 

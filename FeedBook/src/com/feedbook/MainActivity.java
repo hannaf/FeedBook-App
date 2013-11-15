@@ -65,6 +65,7 @@ public class MainActivity extends Activity /* implements OnClickListener */{
 							Intent intent = new Intent(MainActivity.this,
 									FeedActivity.class);
 							startActivity(intent);
+							finish();
 						} else
 							Toast.makeText(
 									MainActivity.this,

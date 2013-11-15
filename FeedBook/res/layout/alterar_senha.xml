@@ -8,6 +8,7 @@
     <TextView 
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
         android:textSize="25sp"
         android:text="@string/cadastro_usuario"/>
     
@@ -15,32 +16,39 @@
     <TextView 
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:textSize="18sp"
         android:text="@string/senha"/>
     
     <EditText 
         android:id="@+id/senhaUsuario"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
         android:inputType="textPassword"
         android:hint="@string/senha"/>
     
     <TextView 
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
         android:text="@string/confirmar"/>
     
     <EditText 
         android:id="@+id/confirmarSenha"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
         android:inputType="textPassword"
         android:hint="@string/confirmar"/>    
         
     <Button 
-        android:layout_width="fill_parent"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
+        android:layout_gravity="center_horizontal"
+        
         android:text="@string/concluir" 
-        android:onClick="salvarUsuario"/>      
+        android:onClick="salvarUsuario"/> 
+             
 
 </LinearLayout>
