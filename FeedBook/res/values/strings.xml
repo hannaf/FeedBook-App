@@ -56,5 +56,8 @@
     <string name="msg_feed_publicado_sucesso">Feed publicado com sucesso</string>
     <!-- Toast -->
     <string name="icone_alerta">Icone alerta</string>
+    <!-- Novo Grupo -->
+    <string name="msg_digite_nome_grupo">Digite o nome do grupo</string>
+    <string name="msg_grupo_cadastrado_sucesso_chave">Grupo cadastrado com sucesso. Chave: </string>
     
 </resources>

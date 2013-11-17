@@ -117,7 +117,9 @@ public class FeedActivity extends Activity implements OnItemClickListener {
 	}
 	
 	public void listarGrupos(View view){
-		startActivity(new Intent(this, GrupoActivity.class));
+		Intent intent = new Intent(this, GrupoActivity.class);
+		intent.putExtra("idUsuario", getIntent().getIntExtra("idUsuario", 0));
+		startActivity(intent);
 	}
 
 	

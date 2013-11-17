@@ -7,6 +7,8 @@ import java.util.Map;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -24,10 +26,13 @@ public class GrupoActivity extends Activity {
 
 	private ListView listView;
 
+	private DatabaseHelper dbHelper;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.lista_grupo);
+		dbHelper = new DatabaseHelper(this);
 		listView = (ListView) findViewById(R.id.listaGrupo);
 		String[] de = { "nomeGrupo" };
 		int[] para = { R.id.nomeGrupo };
@@ -38,87 +43,22 @@ public class GrupoActivity extends Activity {
 	}
 
 	public List<Map<String, Object>> listarGrupos() {
-		grupoList = new ArrayList<Map<String, Object>>();
-
-		Map<String, Object> grupo = new HashMap<String, Object>();
-		grupo.put("nomeGrupo", "IHC Tarde 2013 - 2 Semestre");
-		grupoList.add(grupo);
-
-		grupo = new HashMap<String, Object>();
-		grupo.put("nomeGrupo", "Emp Noite 2013 - 2 Semestre");
-		grupoList.add(grupo);
-
-		grupo = new HashMap<String, Object>();
-		grupo.put("nomeGrupo", "HSI Noite 2013 - 2 Semestre");
-		grupoList.add(grupo);
-
-		grupo = new HashMap<String, Object>();
-		grupo.put("nomeGrupo", "LBD Noite 2013 - 2 Semestre");
-		grupoList.add(grupo);
-
-		grupo = new HashMap<String, Object>();
-		grupo.put("nomeGrupo", "RH Noite 2013 - 2 Semestre");
-		grupoList.add(grupo);
-
-		grupo = new HashMap<String, Object>();
-		grupo.put("nomeGrupo", "ERP Noite 2013 - 2 Semestre");
-		grupoList.add(grupo);
-
-		grupo = new HashMap<String, Object>();
-		grupo.put("nomeGrupo", "Pro Micro Noite 2013 - 2 Semestre");
-		grupoList.add(grupo);
-
-		grupo = new HashMap<String, Object>();
-		grupo.put("nomeGrupo", "IHC Tarde 2013 - 2 Semestre");
-		grupoList.add(grupo);
-
-		grupo = new HashMap<String, Object>();
-		grupo.put("nomeGrupo", "Emp Noite 2013 - 2 Semestre");
-		grupoList.add(grupo);
-
-		grupo = new HashMap<String, Object>();
-		grupo.put("nomeGrupo", "HSI Noite 2013 - 2 Semestre");
-		grupoList.add(grupo);
-
-		grupo = new HashMap<String, Object>();
-		grupo.put("nomeGrupo", "LBD Noite 2013 - 2 Semestre");
-		grupoList.add(grupo);
-
-		grupo = new HashMap<String, Object>();
-		grupo.put("nomeGrupo", "RH Noite 2013 - 2 Semestre");
-		grupoList.add(grupo);
-
-		grupo = new HashMap<String, Object>();
-		grupo.put("nomeGrupo", "ERP Noite 2013 - 2 Semestre");
-		grupoList.add(grupo);
-
-		grupo = new HashMap<String, Object>();
-		grupo.put("nomeGrupo", "Pro Micro Noite 2013 - 2 Semestre");
-		grupoList.add(grupo);
-
-		grupo = new HashMap<String, Object>();
-		grupo.put("nomeGrupo", "IHC Tarde 2013 - 2 Semestre");
-		grupoList.add(grupo);
-
-		grupo = new HashMap<String, Object>();
-		grupo.put("nomeGrupo", "Emp Noite 2013 - 2 Semestre");
-		grupoList.add(grupo);
-
-		grupo = new HashMap<String, Object>();
-		grupo.put("nomeGrupo", "HSI Noite 2013 - 2 Semestre");
-		grupoList.add(grupo);
-
-		grupo = new HashMap<String, Object>();
-		grupo.put("nomeGrupo", "LBD Noite 2013 - 2 Semestre");
-		grupoList.add(grupo);
-
-		grupo = new HashMap<String, Object>();
-		grupo.put("nomeGrupo", "RH Noite 2013 - 2 Semestre");
-		grupoList.add(grupo);
-
-		grupo = new HashMap<String, Object>();
-		grupo.put("nomeGrupo", "ERP Noite 2013 - 2 Semestre");
-		grupoList.add(grupo);
+		grupoList = new ArrayList<Map<String,Object>>();
+		Map<String,Object> grupo;
+		int id = getIntent().getIntExtra("idUsuario", 0);
+		
+		SQLiteDatabase db = dbHelper.getReadableDatabase();
+		Cursor cursor = db.rawQuery("SELECT _id, nome_grupo, descricao_grupo, " +
+		"chave_grupo, status FROM grupo g LEFT OUTER JOIN grupo_usuario gu ON g._id = gu.id_grupo WHERE gu.id_usuario = ? ",
+		new String[]{String.valueOf(id)});
+		cursor.moveToFirst();
+		for (int i = 0; i < cursor.getCount(); i++) {
+			grupo = new HashMap<String, Object>();
+			grupo.put("nomeGrupo", cursor.getString(1));
+			grupoList.add(grupo);
+			cursor.moveToNext();
+		}
+		cursor.close();
 		
 		return grupoList;
 	}
@@ -140,7 +80,7 @@ public class GrupoActivity extends Activity {
 			return true;
 		}
 		if (item.getItemId() == R.id.feedsGrupo) {
-			Toast.makeText(this, "Feeds do Grupo",  Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, "Feeds do Grupo", Toast.LENGTH_SHORT).show();
 			return true;
 		}
 		if (item.getItemId() == R.id.excluirGrupo) {
@@ -152,9 +92,16 @@ public class GrupoActivity extends Activity {
 		}
 		return super.onContextItemSelected(item);
 	}
+
+	public void novoGrupo(View view) {
+		Intent intent = new Intent(this, NovoGrupoActivity.class);
+		intent.putExtra("idUsuario", getIntent().getIntExtra("idUsuario", 0));
+		startActivity(intent);
+	}
 	
-	public void novoGrupo(View view){
-		startActivity(new Intent(this, NovoGrupoActivity.class));
+	protected void onDestroy() {
+		dbHelper.close();
+		super.onDestroy();
 	}
 
 }

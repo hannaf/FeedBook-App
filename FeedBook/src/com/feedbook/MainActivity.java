@@ -62,16 +62,23 @@ public class MainActivity extends Activity /* implements OnClickListener */{
 									"Login com Sucesso!!!", Toast.LENGTH_SHORT)
 									.show();
 
-							Intent intent = new Intent(MainActivity.this,
-									FeedActivity.class);
+							Intent intent = new Intent(MainActivity.this, FeedActivity.class);
+							intent.putExtra("idUsuario", cursor.getInt(0));
 							startActivity(intent);
 							finish();
-						} else
+
+						} else {
+							
 							Toast.makeText(
 									MainActivity.this,
 									"Erro de login, usuário ou senha inválidos",
 									Toast.LENGTH_SHORT).show();
+						}
+						
+						cursor.close();
+						
 					}
+					
 				}
 			}
 		});
@@ -89,11 +96,11 @@ public class MainActivity extends Activity /* implements OnClickListener */{
 		// final de oncreate
 
 	}
-	
+
 	protected void onDestroy() {
 		dbHelper.close();
 		super.onDestroy();
 	}
-	
+
 }// final main activity
 
