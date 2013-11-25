@@ -107,12 +107,7 @@ public class GrupoActivity extends Activity {
 		dbHelper.close();
 		super.onDestroy();
 	}
-	/*public void onBackPressed() {
-        //nada acontece usando este
-        finish();
-        //nem este, continua saindo de todo o app e não para a tela anterior
-        super.onBackPressed();
- }*/
+	
 	
 	
 

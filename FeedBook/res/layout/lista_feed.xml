@@ -27,9 +27,10 @@
 
     <Button
         android:id="@+id/listaGrupos"
-        android:layout_width="fill_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:layout_gravity="bottom"
         android:onClick="listarGrupos"
         android:text="@string/grupos" />
@@ -39,10 +40,11 @@
         android:layout_width="fill_parent"
         android:layout_height="420dp"
         android:layout_above="@id/listaGrupos"
-        android:layout_below="@id/pesquisaFeed" 
-        android:dividerHeight="8dp" 
-        android:divider="@android:color/transparent"
+        android:layout_below="@id/pesquisaFeed"
         android:layout_marginLeft="6dp"
-        android:layout_marginRight="6dp"/>
+        android:layout_marginRight="6dp"
+        android:clickable="true"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="8dp" />
 
 </RelativeLayout>
