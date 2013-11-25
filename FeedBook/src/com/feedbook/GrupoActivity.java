@@ -101,7 +101,7 @@ public class GrupoActivity extends Activity {
 		Intent intent = new Intent(this, NovoGrupoActivity.class);
 		intent.putExtra("idUsuario", getIntent().getIntExtra("idUsuario", 1));
 		startActivity(intent);
-		
+		finish();		
 	}
 	
 	protected void onDestroy() {
