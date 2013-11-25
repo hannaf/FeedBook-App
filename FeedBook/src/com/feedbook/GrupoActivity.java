@@ -11,6 +11,7 @@ import android.content.IntentFilter;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.provider.Contacts.Intents.UI;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.MenuInflater;
@@ -107,7 +108,11 @@ public class GrupoActivity extends Activity {
 		dbHelper.close();
 		super.onDestroy();
 	}
-	
+	public void onBackPressed() {
+		 startActivity(new Intent(this, FeedActivity.class)
+		 .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+		 return;
+		}
 	
 	
 

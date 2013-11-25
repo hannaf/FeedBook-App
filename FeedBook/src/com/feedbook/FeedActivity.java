@@ -83,6 +83,7 @@ public class FeedActivity extends Activity {
 		Intent intent = new Intent(this, GrupoActivity.class);
 		intent.putExtra("idUsuario", getIntent().getIntExtra("idUsuario", 0));
 		startActivity(intent);
+		finish();
 	}
 	
 	private Toast toast;
