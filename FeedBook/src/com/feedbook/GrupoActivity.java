@@ -111,6 +111,7 @@ public class GrupoActivity extends Activity {
 	public void onBackPressed() {
 		 startActivity(new Intent(this, FeedActivity.class)
 		 .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+		 finish();
 		 return;
 		}
 	
