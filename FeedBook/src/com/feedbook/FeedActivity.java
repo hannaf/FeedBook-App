@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -28,6 +27,9 @@ public class FeedActivity extends Activity implements OnItemClickListener {
 	
 	private DatabaseHelper dbHelper;
 	
+	
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -36,8 +38,8 @@ public class FeedActivity extends Activity implements OnItemClickListener {
 		setContentView(R.layout.lista_feed);
 		listView = (ListView) findViewById(R.id.listaFeed);
 		dbHelper = new DatabaseHelper(this);
-		String[] de = {"nomeGrupo","tituloFeed"/*,"detalhe"*/};
-		int[] para = {R.id.nomeGrupo, R.id.tituloFeed/*, R.id.detalhe*/};
+		String[] de = {"nomeGrupo","tituloFeed"};
+		int[] para = {R.id.nomeGrupo, R.id.tituloFeed};
 		SimpleAdapter adapter = new SimpleAdapter(this, listarFeeds(), R.layout.feed, de, para);
 		listView.setAdapter(adapter);
 		 adapter.notifyDataSetChanged();
@@ -49,7 +51,7 @@ public class FeedActivity extends Activity implements OnItemClickListener {
 		int id = getIntent().getIntExtra("idUsuario", 0);
 		
 		SQLiteDatabase db = dbHelper.getReadableDatabase();
-		Cursor cursor = db.rawQuery("SELECT TITULO_FEED, DETALHE_FEED, NOME_GRUPO FROM feed AS F " +
+		Cursor cursor = db.rawQuery("SELECT nome_grupo , titulo_feed , detalhe_feed  FROM feed AS F " +
 				"INNER JOIN GRUPO AS G ON G._ID = F.ID_GRUPO " +
 				"INNER JOIN GRUPO_USUARIO AS GU ON GU.id_grupo = G._ID " +
 				"WHERE GU.ID_USUARIO = ? ",
@@ -158,5 +160,9 @@ public class FeedActivity extends Activity implements OnItemClickListener {
 		String mensagem = "Nome grupo: "+ destino;
 		Toast.makeText(this, mensagem, Toast.LENGTH_LONG).show();
 	}
+	public void onBackPressed() {	   
+
+        return;
+    }
 
 }

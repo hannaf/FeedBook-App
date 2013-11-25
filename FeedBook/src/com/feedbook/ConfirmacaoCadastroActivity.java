@@ -24,7 +24,8 @@ public class ConfirmacaoCadastroActivity extends Activity {
 			Intent intent = new Intent(this, AlterarSenhaActivity.class);
 			intent.putExtra("email", getIntent().getStringExtra("email"));
 			intent.putExtra("apelido", getIntent().getStringExtra("apelido"));
-			startActivity(intent);			
+			startActivity(intent);	
+			finish();
 		}
 	}
 }

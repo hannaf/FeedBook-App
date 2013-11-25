@@ -17,14 +17,19 @@
         android:layout_marginLeft="5dp"
         android:textColor="#F0F8FF"/>
     
-    <Button 
+    <Button
         android:id="@+id/novoGrupo"
-        android:layout_width="fill_parent"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
         android:layout_alignParentBottom="true"
-        android:text="@string/novo_grupo"
-        android:onClick="novoGrupo"/>    
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_centerHorizontal="false"
+        android:layout_centerInParent="false"
+        android:layout_centerVertical="false"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:onClick="novoGrupo"
+        android:text="@string/novo_grupo" />
     
     <ListView
         android:id="@+id/listaGrupo" 

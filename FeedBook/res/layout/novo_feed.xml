@@ -37,12 +37,12 @@
         android:textSize="18sp"
         android:text="@string/detalhe"/>
     
-    <EditText 
+    <EditText
         android:id="@+id/detalheFeed"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:lines="5"
-        android:hint="@string/detalhe"/>    
+        android:hint="@string/detalhe"
+        android:lines="3" />
         
     <Button 
         android:layout_width="150dp"

@@ -46,6 +46,7 @@ public class CadastroUsuarioActivity extends Activity{
 				intent.putExtra("email", email);
 				intent.putExtra("apelido", apelido);
 				startActivity(intent);
+				finish();
 			}
 		}
 	}

@@ -7,6 +7,7 @@ import java.util.Map;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -77,7 +78,9 @@ public class GrupoActivity extends Activity {
 					.getMenuInfo();
 
 			startActivity(new Intent(this, NovoFeedActivity.class));
+			finish();
 			return true;
+			
 		}
 		if (item.getItemId() == R.id.feedsGrupo) {
 			Toast.makeText(this, "Feeds do Grupo", Toast.LENGTH_SHORT).show();
@@ -95,13 +98,24 @@ public class GrupoActivity extends Activity {
 
 	public void novoGrupo(View view) {
 		Intent intent = new Intent(this, NovoGrupoActivity.class);
-		intent.putExtra("idUsuario", getIntent().getIntExtra("idUsuario", 0));
+		intent.putExtra("idUsuario", getIntent().getIntExtra("idUsuario", 1));
 		startActivity(intent);
+		
 	}
 	
 	protected void onDestroy() {
 		dbHelper.close();
 		super.onDestroy();
 	}
+	/*public void onBackPressed() {
+        //nada acontece usando este
+        finish();
+        //nem este, continua saindo de todo o app e não para a tela anterior
+        super.onBackPressed();
+ }*/
+	
+	
 
 }
+
+

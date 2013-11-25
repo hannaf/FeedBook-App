@@ -55,6 +55,7 @@ public class NovoGrupoActivity extends Activity {
 				if (resultGrupoUsu != -1) {
 					ToastManager.show(this, getString(R.string.msg_grupo_cadastrado_sucesso_chave) + "1234", ToastManager.SUCCESS);
 					startActivity(new Intent(this, GrupoActivity.class));
+					finish();
 				}
 				
 				cursor.close();

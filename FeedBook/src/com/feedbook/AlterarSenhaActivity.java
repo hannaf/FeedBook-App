@@ -46,6 +46,8 @@ public class AlterarSenhaActivity extends Activity {
 			if (resultado != -1) {
 				ToastManager.show(this, getString(R.string.msg_usuario_cadastrado_sucesso), ToastManager.SUCCESS);
 				startActivity(new Intent(this, FeedActivity.class));
+				finish();
+				
 			}
 		}		
 	}

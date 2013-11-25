@@ -42,6 +42,7 @@ public class NovoFeedActivity extends Activity {
 			if (resultado != -1) {
 				ToastManager.show(this, getString(R.string.msg_feed_publicado_sucesso), ToastManager.SUCCESS);
 				startActivity(new Intent(this, FeedActivity.class));
+				finish();
 			}
 			
 		}
@@ -53,5 +54,6 @@ public class NovoFeedActivity extends Activity {
 		dbHelper.close();
 		super.onDestroy();
 	}
+	
 
 }
