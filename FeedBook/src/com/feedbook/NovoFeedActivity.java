@@ -7,15 +7,21 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class NovoFeedActivity extends Activity {
 	
 	private DatabaseHelper dbHelper;
+	
+	private TextView txVNomeGrupo;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.novo_feed);
 		dbHelper = new DatabaseHelper(this);
+		txVNomeGrupo = (TextView) findViewById(R.id.nomeGrupo);
+		txVNomeGrupo.setText(getIntent().getStringExtra("nomeGrupo"));
 		
 	}
 	
@@ -31,10 +37,11 @@ public class NovoFeedActivity extends Activity {
 			
 			SQLiteDatabase db = dbHelper.getWritableDatabase();
 			ContentValues values = new ContentValues();
+			Long id = getIntent().getLongExtra("idGrupo", 0);
 			
 			values.put("titulo_feed",titulo);
 			values.put("detalhe_feed", detalhe);
-			values.put("id_grupo",1);
+			values.put("id_grupo", id);
 			
 			long resultado = db.insert("feed", null, values);
 			

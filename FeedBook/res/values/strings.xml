@@ -59,5 +59,8 @@
     <!-- Novo Grupo -->
     <string name="msg_digite_nome_grupo">Digite o nome do grupo</string>
     <string name="msg_grupo_cadastrado_sucesso_chave">Grupo cadastrado com sucesso. Chave: </string>
-    
+    <!-- Grupo -->
+    <string name="grupo_excluido">Grupo excluido!</string>
+    <string name="descricao_grupo_excluido">Esse grupo foi excluido pelo moderador. Você não receberá mais feeds relacionados a ele nem poderá encontra-lo na sua lista de grupos.</string>
+    <string name="grupo_excluido_sucesso">Grupo excluido com sucesso</string>
 </resources>

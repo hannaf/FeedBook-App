@@ -34,6 +34,7 @@ public class NovoGrupoActivity extends Activity {
 			values.put("nome_grupo", nome);
 			values.put("descricao_grupo", descr);
 			values.put("chave_grupo", 1234);
+			values.put("inativo", 0);
 			
 			long resultGrupo = db.insert("grupo", null, values);
 			
@@ -47,7 +48,7 @@ public class NovoGrupoActivity extends Activity {
 				
 				values = new ContentValues();
 				values.put("id_grupo", idGrupo); 
-				values.put("id_usuario", getIntent().getIntExtra("idUsuario", 0)); 
+				values.put("id_usuario", getIntent().getLongExtra("idUsuario", 0)); 
 				values.put("status", ConstantesUtil.STATUS_MODERADOR);
 				
 				long resultGrupoUsu = db.insert("grupo_usuario", null, values);

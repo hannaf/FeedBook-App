@@ -17,15 +17,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
 		db.execSQL("CREATE TABLE usuario(_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
 				" email_usuario TEXT NOT NULL, apelido TEXT NOT NULL, senha TEXT NOT NULL);");//tabela usuario
-		
-		
-		
-		db.execSQL("CREATE TABLE grupo (_id INTEGER PRIMARY KEY AUTOINCREMENT, nome_grupo TEXT NOT NULL, descricao_grupo TEXT, chave_grupo TEXT NOT NULL);"); 
+
+		db.execSQL("CREATE TABLE grupo (_id INTEGER PRIMARY KEY AUTOINCREMENT, nome_grupo TEXT NOT NULL, descricao_grupo " +
+				"TEXT, chave_grupo TEXT NOT NULL, inativo INTEGER);"); 
 		        //tabela grupo e relação usuario
 		db.execSQL("CREATE TABLE grupo_usuario(id_grupo INTEGER NOT NULL, id_usuario INTEGER NOT NULL, status TEXT NOT NULL," +
 				" PRIMARY KEY(id_grupo, id_usuario),FOREIGN KEY (id_grupo) REFERENCES grupo(_id),FOREIGN KEY (id_usuario) REFERENCES usuario(_id));");
-		
-		
 		
 		db.execSQL("CREATE TABLE feed(_id INTEGER PRIMARY KEY AUTOINCREMENT, titulo_feed TEXT NOT NULL, detalhe_feed TEXT, id_grupo INTEGER NOT NULL);");
 		        //tabela feed e relação grupo

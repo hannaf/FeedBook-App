@@ -63,7 +63,7 @@ public class MainActivity extends Activity /* implements OnClickListener */{
 									.show();
 
 							Intent intent = new Intent(MainActivity.this, FeedActivity.class);
-							intent.putExtra("idUsuario", cursor.getInt(1));
+							intent.putExtra("idUsuario", cursor.getLong(0));
 							startActivity(intent);
 							finish();
 
