@@ -58,7 +58,7 @@ public class FeedActivity extends Activity {
 						"SELECT nome_grupo , titulo_feed , detalhe_feed  FROM feed AS F "
 								+ "INNER JOIN GRUPO AS G ON G._ID = F.ID_GRUPO "
 								+ "INNER JOIN GRUPO_USUARIO AS GU ON GU.id_grupo = G._ID "
-								+ "WHERE GU.ID_USUARIO = ? AND GU.STATUS != ? ",
+								+ "WHERE GU.ID_USUARIO = ? AND GU.STATUS != ? ORDER BY F._ID DESC",
 						new String[] { String.valueOf(id), String.valueOf(ConstantesUtil.STATUS_FEED_CANCELADO) });
 		cursor.moveToFirst();
 		for (int i = 0; i < cursor.getCount(); i++) {
